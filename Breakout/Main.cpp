@@ -6,8 +6,6 @@
 
 #define window_width 800
 #define window_height 600
-
-//COLORS
 #define fps 60
 
 using namespace std;
@@ -50,8 +48,7 @@ int main(int argc, char *argv[]) {
 
 	//BACKGROUNDCOLOR
 	SDL_FillRect(screen, NULL, white);
-	//UPDATE
-	SDL_UpdateWindowSurface(window);
+	
 
 	//TURN ON/OFF BORDERS TRUE = BORDERS
 	SDL_SetWindowBordered(window, SDL_TRUE);
@@ -59,6 +56,16 @@ int main(int argc, char *argv[]) {
 	//INIT 
 	Uint32 starting_tick;
 
+	//
+	
+	SDL_Rect rect;
+	rect.x = 10;
+	rect.y = 10;
+	rect.w = 50;
+	rect.h = 20;
+	SDL_FillRect(screen, &rect, black);
+	//UPDATE
+	SDL_UpdateWindowSurface(window);
 
 
 	SDL_Event event;
