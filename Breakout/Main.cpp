@@ -46,6 +46,7 @@ int main(int argc, char *argv[]) {
 	//COLORS
 	Uint32 white = SDL_MapRGB(screen->format, 255, 255, 255);
 	Uint32 black = SDL_MapRGB(screen->format, 0, 0, 0);
+	Uint32 red = SDL_MapRGB(screen->format, 255, 0, 0);
 
 	//BACKGROUNDCOLOR
 	SDL_FillRect(screen, NULL, white);
