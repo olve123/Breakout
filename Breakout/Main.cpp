@@ -56,14 +56,18 @@ int main(int argc, char *argv[]) {
 	//INIT 
 	Uint32 starting_tick;
 
-	//
 	
+	//DRAWING RECTANGLES
 	SDL_Rect rect;
 	rect.x = 10;
 	rect.y = 10;
 	rect.w = 50;
 	rect.h = 20;
 	SDL_FillRect(screen, &rect, black);
+
+	
+	rect.x = 62;
+	SDL_FillRect(screen, &rect, red);
 	//UPDATE
 	SDL_UpdateWindowSurface(window);
 
