@@ -17,6 +17,36 @@ void cap_framerate(Uint32 starting_tick) {
 	}
 }
 
+class Sprite {
+private: 
+	SDL_Surface *image;
+	SDL_Rect rect; 
+
+	int origin_x, origin_y;
+public: 
+	Sprite(Uint32 color, int x, int y, int w = 50, int h = 20) {
+		image = SDL_CreateRGBSurface(0, w, h, 32, 0, 0, 0, 0);
+		SDL_FillRect(image, NULL, color);
+
+		rect = image->clip_rect;
+
+		origin_x = rect.w / 2;
+		origin_y = rect.h / 2;
+
+		rect.x = x - origin_x;
+		rect.y = y - origin_y;
+
+	}
+	void update() {
+		//can be overridden!
+	}
+
+	void draw(SDL_Surface *destination) {
+		SDL_BlitSurface(image, NULL, destination, &rect);
+	}
+
+};
+
 
 int main(int argc, char *argv[]) {
 	//init sdl
@@ -58,16 +88,24 @@ int main(int argc, char *argv[]) {
 
 	
 	//DRAWING RECTANGLES
-	SDL_Rect rect;
-	rect.x = 10;
-	rect.y = 10;
-	rect.w = 50;
-	rect.h = 20;
-	SDL_FillRect(screen, &rect, black);
+	Sprite object1(red, 30, 20);
+	object1.draw(screen);
+
+	Sprite object2(black, 82, 20);
+	object2.draw(screen);
+
+
+
+	//SDL_Rect rect;
+	//rect.x = 10;
+	//rect.y = 10;
+	//rect.w = 50;
+	//rect.h = 20;
+	//SDL_FillRect(screen, &rect, black);
 
 	
-	rect.x = 62;
-	SDL_FillRect(screen, &rect, red);
+	//rect.x = 62;
+	//SDL_FillRect(screen, &rect, red);
 	//UPDATE
 	SDL_UpdateWindowSurface(window);
 
