@@ -1,8 +1,8 @@
 // ConsoleApplication4.cpp : Defines the entry point for the console application.
 //
-
 #include "SDL.h"
 #include <iostream>
+#include "Piece.h"
 
 #define window_width 800
 #define window_height 600
