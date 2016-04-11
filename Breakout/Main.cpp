@@ -12,13 +12,6 @@
 
 using namespace std;
 
-class Board {
-public:
-	
-
-
-};
-
 
 //--------------------------------------------------------------//
 
@@ -30,24 +23,16 @@ void cap_framerate(Uint32 starting_tick) {
 	}
 }
 
-class block {
+class Block {
 private: 
 	SDL_Surface *image;
 	SDL_Rect rect; 
-
-	int origin_x, origin_y;
 public: 
-	block(int x, int y, int w = 50, int h = 20) {
+	Block(int x, int y, int h, int w, Uint32 color) {
 		image = SDL_CreateRGBSurface(0, w, h, 32, 0, 0, 0, 0);
 		SDL_FillRect(image, NULL, color);
-
-		rect = image->clip_rect;
-
-		origin_x = rect.w / 2;
-		origin_y = rect.h / 2;
-
-		rect.x = x - origin_x;
-		rect.y = y - origin_y;
+		rect.x = x;
+		rect.y = y;
 
 	}
 	void update() {
@@ -92,7 +77,6 @@ int main(int argc, char *argv[]) {
 	//init sdl
 	SDL_Init(SDL_INIT_EVERYTHING);
 	SDL_Window *window = NULL;
-	Uint8 keystate;
 	//window properties
 	window = SDL_CreateWindow(
 		"BREAKOUT",
@@ -130,21 +114,16 @@ int main(int argc, char *argv[]) {
 	//std::vector<std::pair<int, int>> blocks;
 	
 	//DRAWING RECTANGLES
-	Brick brick(50, 50, 50, 100, (255, 0, 0), 1);
+	Brick brick(3, 3, 25, 50, red, 1);
+	Brick* pbrick = &brick;
+	brick.draw(screen);
 
-	
-
-	
 	SDL_Event event;
 	bool running = true;
 
 	//GAMELOOP
 	while (running) {
 		
-		//keystate = SDL_GetKeyboardState(NULL);
-		//if (keystate[SDLK_LEFT]) {
-		//	paddle. -= 2;
-		//}
 		SDL_UpdateWindowSurface(window);
 		starting_tick = SDL_GetTicks();
 		while (SDL_PollEvent(&event)) {
@@ -154,7 +133,7 @@ int main(int argc, char *argv[]) {
 				break;
 			}
 		}
-		//FRAMERATELOCK
+		//FRAMERATELOCK // AND FOR GOD SAKE DELETE MEMORY LOL
 		cap_framerate(starting_tick);
 	}
 

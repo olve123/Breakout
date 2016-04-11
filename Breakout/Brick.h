@@ -6,19 +6,21 @@
 */
 
 #include <string>
+#include "Piece.h"
 using namespace std;
 
 class Brick: public Piece {
 public:
 	Brick();
-	Brick(int xPos, int yPos, int height, int length, uint32_t color, int hp);
+	Brick(int xPos, int yPos, int height, int length, Uint32 color, int hp);
 	~Brick();
-
 	int getHp();
-
-	void setHp(int hp);
+	void setHp(int hp);	
+	void draw(SDL_Surface* dest);
 
 private:
+	SDL_Surface *m_image;
+	SDL_Rect m_rect;
 	int m_hp;
 };
 

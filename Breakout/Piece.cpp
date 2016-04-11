@@ -41,11 +41,7 @@ void Piece::setLength(int length)
 	m_length = length;
 }
 
-void Piece::setColor(uint32_t color)
-{
-}
-
-void Piece::setColor(uint32_t color)
+void Piece::setColor(Uint32 color)
 {
 	m_color = color;
 }
@@ -54,13 +50,13 @@ Piece::Piece()
 {
 }
 
-Piece::Piece(int xPos, int yPos, uint32_t color)
+Piece::Piece(int xPos, int yPos, Uint32 color)
 {
 	initPos(xPos, yPos);
 	setColor(color);
 }
 
-Piece::Piece(int xPos, int yPos, int height, int length, uint32_t color = (0,0,0))
+Piece::Piece(int xPos, int yPos, int height, int length, Uint32 color = (0,0,0))
 {
 	initPos(xPos, yPos);
 	initSize(height, length);
@@ -91,7 +87,7 @@ int Piece::getLength()
 	return m_length;
 }
 
-uint32_t Piece::getColor()
+Uint32 Piece::getColor()
 {
-	return uint32_t(m_color);
+	return m_color;
 }
