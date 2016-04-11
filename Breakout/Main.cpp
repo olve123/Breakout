@@ -3,6 +3,7 @@
 #include "SDL.h"
 #include <iostream>
 #include "Piece.h"
+#include <vector>
 
 #define window_width 800
 #define window_height 600
@@ -10,15 +11,9 @@
 
 using namespace std;
 
-//experiment
-class Brick {
-
-};
-
 class Board {
 public:
-	Board(SDL_Renderer* renderer);
-
+	
 
 
 };
@@ -41,7 +36,7 @@ private:
 
 	int origin_x, origin_y;
 public: 
-	block(Uint32 color, int x, int y, int w = 50, int h = 20) {
+	block(int x, int y, int w = 50, int h = 20) {
 		image = SDL_CreateRGBSurface(0, w, h, 32, 0, 0, 0, 0);
 		SDL_FillRect(image, NULL, color);
 
@@ -90,6 +85,7 @@ public:
 };
 
 
+
 //////////////////////////////////////////////////////
 int main(int argc, char *argv[]) {
 	//init sdl
@@ -130,7 +126,8 @@ int main(int argc, char *argv[]) {
 	//INIT 
 	Uint32 starting_tick;
 	
-
+	//std::vector<std::pair<int, int>> blocks;
+	
 	//DRAWING RECTANGLES
 	block object1(red, 30, 20);
 	object1.draw(screen);
@@ -155,6 +152,8 @@ int main(int argc, char *argv[]) {
 
 	paddle paddle(blue, 150, 580);
 	paddle.draw(screen);
+
+	
 
 	
 	SDL_Event event;
