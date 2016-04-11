@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Piece.h"
 #include <vector>
+#include "Brick.h"
 
 #define window_width 800
 #define window_height 600
@@ -129,29 +130,7 @@ int main(int argc, char *argv[]) {
 	//std::vector<std::pair<int, int>> blocks;
 	
 	//DRAWING RECTANGLES
-	block object1(red, 30, 20);
-	object1.draw(screen);
-
-	block object2(black, 82, 20);
-	object2.draw(screen);
-
-	block object3(red, 134, 20);
-	object3.draw(screen);
-
-	block object4(black, 186, 20);
-	object4.draw(screen);
-
-	block object5(red, 238, 20);
-	object5.draw(screen);
-
-	block object6(black, 290, 20);
-	object6.draw(screen);
-
-	block object7(red, 342, 20);
-	object7.draw(screen);
-
-	paddle paddle(blue, 150, 580);
-	paddle.draw(screen);
+	Brick brick(50, 50, 50, 100, (255, 0, 0), 1);
 
 	
 
