@@ -1,7 +1,9 @@
-#pragma once
+#ifndef PADDLE_H
+#define PADDLE_H
+
+
 #include "Piece.h"
-class Paddle :
-	public Piece
+class Paddle : public Piece
 {
 public:
 	Paddle();
@@ -12,3 +14,4 @@ public:
 
 };
 
+#endif // !PADDLE_H

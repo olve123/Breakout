@@ -1,7 +1,10 @@
-#pragma once
+#ifndef BALL_H
+#define BALL_H
+
+
 #include "Piece.h"
-class Ball :
-	public Piece
+
+class Ball : public Piece
 {
 public:
 	Ball();
@@ -14,3 +17,4 @@ private:
 	double m_radius;
 };
 
+#endif // !BALL_H

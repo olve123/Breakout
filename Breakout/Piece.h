@@ -2,7 +2,6 @@
 #define PIECE_H
 /*
 * Intented to be inherited from by Brick, Ball and Paddle classes
-* Should be made abstract
 */
 #include <string>
 #include "SDL.h"
