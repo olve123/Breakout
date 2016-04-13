@@ -112,7 +112,6 @@ int main(int argc, char *argv[]) {
 
 	//GAMELOOP
 	while (running) {
-		
 		starting_tick = SDL_GetTicks();
 		while (SDL_PollEvent(&event)) {
 			paddle.draw(screen);
