@@ -1,29 +1,20 @@
 #include "Ball.h"
 
-
-
 Ball::Ball()
 {
 }
 
 Ball::Ball(int xPos, int yPos, uint32_t color, double radius)
-	:Piece(xPos, yPos,color)
+	:Piece(xPos, yPos, color)
 {
-	setRadius(radius);
+	m_radius = radius;
 }
-
-
 
 Ball::~Ball()
 {
 }
 
-double Ball::getRadius()
+bool Ball::update(Paddle & paddle, Board & board)
 {
-	return m_radius;
-}
-
-void Ball::setRadius(double r)
-{
-	m_radius = r;
+	return false;
 }
