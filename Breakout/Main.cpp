@@ -6,6 +6,7 @@
 #include <vector>
 #include "Brick.h"
 #include "Board.h"
+#include "Paddle.h"
 
 #define window_width 800
 #define window_height 600
@@ -107,24 +108,40 @@ int main(int argc, char *argv[]) {
 	SDL_Event event;
 
 
-	
+	Paddle paddle(350, 577, 15, 100, (192153131));
 
 	//GAMELOOP
 	while (running) {
 		
-		SDL_UpdateWindowSurface(window);
 		starting_tick = SDL_GetTicks();
 		while (SDL_PollEvent(&event)) {
+			paddle.draw(screen);
+			//paddle.draw(screen);
+			switch (event.key.keysym.sym) {
 			
+			case SDLK_q: 
+				running = 0;
+			case SDLK_LEFT:
+				paddle.moveLeft(5);
+				paddle.draw(screen);
+				break;
+
+			case SDLK_RIGHT:
+				paddle.moveRight(5);
+				paddle.draw(screen);
+				break;
+			}
+
 			if (event.type == SDL_QUIT) {
 				running = false;
 				break;
 			}
 		}
+		SDL_UpdateWindowSurface(window);
 		//FRAMERATELOCK // AND FOR GOD SAKE DELETE MEMORY LOL
 		cap_framerate(starting_tick);
 	}
-
+	
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 	return 0;
