@@ -13,3 +13,8 @@ Ball::Ball(int xPos, int yPos, uint32_t color, double radius)
 Ball::~Ball()
 {
 }
+
+bool Ball::update(Paddle & paddle, Board & board)
+{
+	return false;
+}
