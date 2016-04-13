@@ -113,20 +113,22 @@ int main(int argc, char *argv[]) {
 	//GAMELOOP
 	while (running) {
 		starting_tick = SDL_GetTicks();
+		SDL_FillRect(screen, NULL, 0x000000);
+		paddle.draw(screen);
 		while (SDL_PollEvent(&event)) {
-			paddle.draw(screen);
+			
 			//paddle.draw(screen);
 			switch (event.key.keysym.sym) {
 			
 			case SDLK_q: 
 				running = 0;
 			case SDLK_LEFT:
-				paddle.moveLeft(5);
+				paddle.moveLeft(15);
 				paddle.draw(screen);
 				break;
 
 			case SDLK_RIGHT:
-				paddle.moveRight(5);
+				paddle.moveRight(15);
 				paddle.draw(screen);
 				break;
 			}
