@@ -14,7 +14,8 @@ Ball::~Ball()
 {
 }
 
-bool Ball::update(Paddle & paddle, Board & board)
-{
-	return false;
-}
+//
+//bool Ball::update(Paddle & paddle, Board & board)
+//{
+//	return false;
+//}
