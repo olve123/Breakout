@@ -32,28 +32,28 @@ Board::Board(SDL_Surface* dest)
 	//MAKE BRICKS (BARE ROT)
 	for (int i = 3; i <= 750; i++)
 	{	 
-			 brickAr[counter] = { i, 3, 25, 97, black, 1 };
+			 brickAr[counter] = { static_cast<double>(i), 3.0, 25, 97, black, 1 };
 			 i += 98;
 			 counter++;
 	}
 
 	for (int i = 3; i <= 750; i++)
 	{
-		brickAr[counter] = { i, 31, 25, 97, red, 1 };
+		brickAr[counter] = { static_cast<double>(i), 31.0, 25, 97, red, 1 };
 		i += 98;
 		counter++;
 	}
 	
 	for (int i = 3; i <= 750; i++)
 	{
-		brickAr[counter] = { i, 59, 25, 97, yellow, 1 };
+		brickAr[counter] = { static_cast<double>(i), 59.0, 25, 97, yellow, 1 };
 		i += 98;
 		counter++;
 	}
 
 	for (int i = 3; i <= 750; i++)
 	{
-		brickAr[counter] = { i, 87, 25, 97, yellow, 1 };
+		brickAr[counter] = { static_cast<double>(i), 87.0, 25, 97, yellow, 1 };
 		i += 98;
 		counter++;
 	}

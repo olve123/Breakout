@@ -11,7 +11,7 @@ Square::Square(double xPos, double yPos, Uint32 color)
 	setColor(color);
 }
 
-Square::Square(double xPos, double yPos, double height, double length, Uint32 color = (0, 0, 0))
+Square::Square(double xPos, double yPos, int height, int length, Uint32 color = (0, 0, 0))
 {
 	m_image = SDL_CreateRGBSurface(0, length, height, 32, 0, 0, 0, 0);
 	initPos(xPos, yPos);
@@ -21,28 +21,28 @@ Square::Square(double xPos, double yPos, double height, double length, Uint32 co
 
 
 
-double Square::getHeight()
+int Square::getHeight()
 {
 	return m_height;
 }
 
-double Square::getLength()
+int Square::getLength()
 {
 	return m_length;
 }
 
 
-void Square::setHeight(double height)
+void Square::setHeight(int height)
 {
 	m_height = height;
 }
 
-void Square::setLength(double length)
+void Square::setLength(int length)
 {
 	m_length = length;
 }
 
-void Square::initSize(double height, double length)
+void Square::initSize(int height, int length)
 {
 	m_height = height;
 	m_length = length;

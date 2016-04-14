@@ -2,6 +2,7 @@
 #define BALL_H
 
 #include "Circle.h"
+#include "Paddle.h"
 
 class Ball : public Circle
 {

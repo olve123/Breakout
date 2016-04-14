@@ -8,22 +8,22 @@ class Square : public Shape {
 public:
 	Square();
 	Square(double xPos, double yPos, Uint32 color);
-	Square(double xPos, double yPos , double height, double length, Uint32 color);
+	Square(double xPos, double yPos , int height, int length, Uint32 color);
 	
 
-	double getHeight();
-	double getLength();
+	int getHeight();
+	int getLength();
 
-	void setHeight(double height);
-	void setLength(double length);
-	void initSize(double m_height, double m_length);
+	void setHeight(int height);
+	void setLength(int length);
+	void initSize(int m_height, int m_length);
 
 	bool hit() override;
 	void draw(SDL_Surface* dest) override;
 
 protected:
-	double m_height;
-	double m_length;
+	int m_height;
+	int m_length;
 	SDL_Rect m_rect;
 };
 

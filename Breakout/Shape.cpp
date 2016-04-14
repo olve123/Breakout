@@ -1,6 +1,10 @@
 #include "Shape.h"
 
 
+Shape::~Shape()
+{
+}
+
 double Shape::getX() const
 {
 	return m_xPos;

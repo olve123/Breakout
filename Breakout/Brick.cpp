@@ -6,7 +6,7 @@ Brick::Brick()
 {
 }
 
-Brick::Brick(int xPos, int yPos, int height, int length, Uint32 color, int hp)
+Brick::Brick(double xPos, double yPos, int height, int length, Uint32 color, int hp)
 	:Square(xPos, yPos, height, length, color)
 {
 	m_hp = hp;

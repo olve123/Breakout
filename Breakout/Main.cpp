@@ -2,11 +2,11 @@
 //
 #include "SDL.h"
 #include <iostream>
-#include "Piece.h"
 #include <vector>
 #include "Brick.h"
 #include "Board.h"
 #include "Paddle.h"
+#include "Ball.h"
 
 #define window_width 800
 #define window_height 600
@@ -53,19 +53,21 @@ int main(int argc, char *argv[]) {
 	Uint32 starting_tick;
 	
 	//CREATE BOARD
-	Board board(screen);
+	//Board board(screen);
 
 	SDL_Event event;
 
 
 	Paddle paddle(350, 577, 15, 100, (192153131));
-	Ball ball();
+	/*Ball ball(20,20,20,(192153131);*/
 
 	//GAMELOOP
 	while (running) {
 		starting_tick = SDL_GetTicks();
 		SDL_FillRect(screen, NULL, 0x000000);
+		Board board(screen);
 		paddle.draw(screen);
+		
 		while (SDL_PollEvent(&event)) {
 			
 			//paddle.draw(screen);
@@ -89,20 +91,20 @@ int main(int argc, char *argv[]) {
 				break;
 			}
 		}
-		ball.updateBallPosition();
+		//ball.updateBallPosition();
 
-		// check for collision with objects
-		if (paddle.hit(ball.getX(), ball.getY() + ball.getRadius())) {
-			ball.setYDiff(-ball.getYDiff);
-			ball.setY(paddle.getY() - ball.getRadius());
-		}
-		else if (paddle.miss(ball.getX(), ball.getY() + ball.getRadius())) {
-			// do some miss action
-		}
-		else if ((ball.getX() - ball.getRadius()) <= xLeftWall) {
-			ball.setXDiff(-ball.getXDiff());
-			ball.setX(xLeftWall + ball.getRadius());
-		}
+		//// check for collision with objects
+		//if (paddle.hit(ball.getX(), ball.getY() + ball.getRadius())) {
+		//	ball.setYDiff(-ball.getYDiff);
+		//	ball.setY(paddle.getY() - ball.getRadius());
+		//}
+		//else if (paddle.miss(ball.getX(), ball.getY() + ball.getRadius())) {
+		//	// do some miss action
+		//}
+		//else if ((ball.getX() - ball.getRadius()) <= xLeftWall) {
+		//	ball.setXDiff(-ball.getXDiff());
+		//	ball.setX(xLeftWall + ball.getRadius());
+		//}
 		
 		SDL_UpdateWindowSurface(window);
 
