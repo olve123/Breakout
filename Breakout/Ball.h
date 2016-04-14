@@ -1,14 +1,14 @@
 #ifndef BALL_H
 #define BALL_H
 
-#include "Piece.h"
+#include "Circle.h"
 
-class Ball : public Piece
+class Ball : public Circle
 {
 public:
 	Ball();
 	Ball(double xPos, double yPos, uint32_t color, double radius);
-	~Ball();
+	//~Ball();
 
 	void init(Paddle& paddle); // Places the ball in the correct position
 	
@@ -20,6 +20,7 @@ public:
 
 	
 private: 
+	int const speed ;
 	double m_xDiff;
 	double m_yDiff;
 	double m_radius;

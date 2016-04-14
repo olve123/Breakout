@@ -2,22 +2,20 @@
 #define PADDLE_H
 
 
-#include "Piece.h"
-class Paddle : public Piece
+#include "Square.h"
+class Paddle : public Square
 {
 public:
 	Paddle();
 	Paddle(int xPos, int yPos, int height, int length, Uint32 color);
-	~Paddle();
+	//~Paddle();
 	void moveRight(int x);
 	void moveLeft(int x);
-	void draw(SDL_Surface* dest);
-	bool hit();
-	bool miss();
+	//void draw(SDL_Surface* dest);
+	//bool hit();
+	//bool miss();
 	
 private:
-	SDL_Surface *m_image;
-	SDL_Rect m_rect;
 	int m_hp;
 
 };
