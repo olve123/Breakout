@@ -4,10 +4,10 @@ Ball::Ball()
 {
 }
 
-Ball::Ball(int xPos, int yPos, uint32_t color, double radius)
-	:Circle(xPos, yPos, color)
+Ball::Ball(double xPos, double yPos, double radius, Uint32 color)
+	:Circle(xPos, yPos, radius, color)
 {
-	m_radius = radius;
+	
 }
 
 

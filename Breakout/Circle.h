@@ -7,7 +7,7 @@
 class Circle : public Shape {
 public:
 	Circle();
-	Circle(double xPos, double yPos, double rad, Uint32 color);
+	Circle(double xPos, double yPos, double radius, Uint32 color);
 	
 
 	double getRadius();

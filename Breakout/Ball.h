@@ -7,7 +7,7 @@ class Ball : public Circle
 {
 public:
 	Ball();
-	Ball(double xPos, double yPos, uint32_t color, double radius);
+	Ball(double xPos, double yPos, double radius, Uint32 color);
 	//~Ball();
 
 	void init(Paddle& paddle); // Places the ball in the correct position
@@ -20,7 +20,7 @@ public:
 
 	
 private: 
-	int const speed ;
+	int const m_speed = 10;
 	double m_xDiff;
 	double m_yDiff;
 	double m_radius;
