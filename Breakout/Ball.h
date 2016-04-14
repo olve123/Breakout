@@ -7,29 +7,23 @@ class Ball : public Piece
 {
 public:
 	Ball();
-	Ball(int xPos, int yPos, uint32_t color, double radius);
+	Ball(double xPos, double yPos, uint32_t color, double radius);
 	~Ball();
 
-	void init(); // Places the ball in the correct position
+	void init(Paddle& paddle); // Places the ball in the correct position
 	
 	//bool update(Paddle& paddle, Board& board);
-	//void drawBall();
+	void drawBall();
 	
-	double getRadius() const;
-	void setRadius(double r);
 
-	void moveUp();
-	void moveDown();
-	void moveRight();
-	void moveLeft();
+	void updateBallPosition();
 
+	
 private: 
-	double m_xDir;
-	double m_yDir;
+	double m_xDiff;
+	double m_yDiff;
 	double m_radius;
 	
-	void x_bounce();
-	void yBounce();
 };
 
 #endif // !BALL_H

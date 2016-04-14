@@ -17,6 +17,8 @@ public:
 	int getHp();
 	void setHp(int hp);	
 	void draw(SDL_Surface* dest);
+	bool hit();
+	bool miss();
 
 private:
 	SDL_Surface *m_image;

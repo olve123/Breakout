@@ -109,6 +109,7 @@ int main(int argc, char *argv[]) {
 
 
 	Paddle paddle(350, 577, 15, 100, (192153131));
+	Ball ball();
 
 	//GAMELOOP
 	while (running) {
@@ -138,6 +139,21 @@ int main(int argc, char *argv[]) {
 				break;
 			}
 		}
+		ball.updateBallPosition();
+
+		// check for collision with objects
+		if (paddle.hit(ball.getX(), ball.getY() + ball.getRadius())) {
+			ball.setYDiff(-ball.getYDiff);
+			ball.setY(paddle.getY() - ball.getRadius());
+		}
+		else if (paddle.miss(ball.getX(), ball.getY() + ball.getRadius())) {
+			// do some miss action
+		}
+		else if ((ball.getX() - ball.getRadius()) <= xLeftWall) {
+			ball.setXDiff(-ball.getXDiff());
+			ball.setX(xLeftWall + ball.getRadius());
+		}
+		
 		SDL_UpdateWindowSurface(window);
 		//FRAMERATELOCK // AND FOR GOD SAKE DELETE MEMORY LOL
 		cap_framerate(starting_tick);

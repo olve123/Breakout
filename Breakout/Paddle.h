@@ -12,6 +12,8 @@ public:
 	void moveRight(int x);
 	void moveLeft(int x);
 	void draw(SDL_Surface* dest);
+	bool hit();
+	bool miss();
 	
 private:
 	SDL_Surface *m_image;
