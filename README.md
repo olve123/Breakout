@@ -5,14 +5,11 @@ Lars
 
 TODO:
 
-- Place paddle on game area
-- Make paddle move
 - Create ball
 - Find out how ball should move and implement
 - Give functionality to Gamemanager
 - Create and give functionality to Inputmanager
 - Implement collision-detection
-- Make an array of bricks and place them on the game-area
 - Write documentation (sunday)
 
 
@@ -20,6 +17,8 @@ In Progress:
 - Update ReadMe - EVERYONE
 - Make a StateManager-class - LARS 
 - Create menu - CHRISTOPHER
+- Make an array of bricks and place them on the game-area - OLVE & LARS
+- Convert from sdl surface to sdl renderer - OLVE
 
 Done:
 - Create ReadMe - LARS	
@@ -30,7 +29,8 @@ Done:
 - Create bricks - OLVE & LARS
 - Place bricks on the game area - OLVE & LARS
 - Create Paddle - OLVE & LARS
-
+- Place paddle on game area - OLVE & LARS
+- Make paddle move - OLVE & LARS
 
 
 SOURCES and recomended reads:
