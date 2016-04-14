@@ -4,18 +4,21 @@ Ball::Ball()
 {
 }
 
-Ball::Ball(int xPos, int yPos, uint32_t color, double radius)
-	:Piece(xPos, yPos, color)
+Ball::Ball(double xPos, double yPos, double radius, Uint32 color)
+	:Circle(xPos, yPos, radius, color)
 {
-	m_radius = radius;
+	
 }
 
-Ball::~Ball()
-{
-}
 
 //
 //bool Ball::update(Paddle & paddle, Board & board)
 //{
 //	return false;
 //}
+
+void Ball::updateBallPosition()
+{
+	m_xPos += m_xDiff;
+	m_yPos += m_yDiff;
+}

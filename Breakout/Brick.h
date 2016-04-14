@@ -6,10 +6,10 @@
 */
 
 #include <string>
-#include "Piece.h"
+#include "Square.h"
 using namespace std;
 
-class Brick: public Piece {
+class Brick: public Square {
 public:
 	Brick();
 	Brick(int xPos, int yPos, int height, int length, Uint32 color, int hp);
@@ -17,10 +17,10 @@ public:
 	int getHp();
 	void setHp(int hp);	
 	void draw(SDL_Surface* dest);
+	bool hit();
+	bool miss();
 
 private:
-	SDL_Surface *m_image;
-	SDL_Rect m_rect;
 	int m_hp;
 };
 

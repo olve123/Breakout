@@ -14,6 +14,9 @@ public:
 	 Board();
 	 Board(SDL_Surface* dest);
 	 ~Board();
+
+	 
+	 void fillBricks();
 };
 
 

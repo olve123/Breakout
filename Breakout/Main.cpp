@@ -20,58 +20,8 @@ void cap_framerate(Uint32 starting_tick) {
 		SDL_Delay(1000 / fps - (SDL_GetTicks() - starting_tick));
 	}
 }
-//OLD BRICK
-//class Block {
-//private: 
-//	SDL_Surface *image;
-//	SDL_Rect rect; 
-//public: 
-//	Block(int x, int y, int h, int w, Uint32 color) {
-//		image = SDL_CreateRGBSurface(0, w, h, 32, 0, 0, 0, 0);
-//		SDL_FillRect(image, NULL, color);
-//		rect.x = x;
-//		rect.y = y;
-//
-//	}
-//	void update() {
-//		//can be overridden!
-//	}
-//
-//	void draw(SDL_Surface *destination) {
-//		SDL_BlitSurface(image, NULL, destination, &rect);
-//	}
-//
-//};
 
 
-//class paddle {
-//private:
-//	SDL_Surface *image;
-//	SDL_Rect rect;
-//
-//	int origin_x, origin_y;
-//
-//public:
-//	paddle(Uint32 color, int x, int y, int w = 200, int h = 20) {
-//		image = SDL_CreateRGBSurface(0, w, h, 32, 0, 0, 0, 0);
-//		SDL_FillRect(image, NULL, color);
-//
-//		rect = image->clip_rect;
-//
-//		origin_x = rect.w / 2;
-//		origin_y = rect.h / 2;
-//
-//		rect.x = x - origin_x;
-//		rect.y = y - origin_y;
-//	}
-//	void draw(SDL_Surface *destination) {
-//		SDL_BlitSurface(image, NULL, destination, &rect);
-//	}
-//};
-
-//OLD PADDLE AND BRICK OVER ^^
-
-//////////////////////////////////////////////////////
 int main(int argc, char *argv[]) {
 	//RUNNING
 	bool running = true;
@@ -109,6 +59,7 @@ int main(int argc, char *argv[]) {
 
 
 	Paddle paddle(350, 577, 15, 100, (192153131));
+	Ball ball();
 
 	//GAMELOOP
 	while (running) {
@@ -138,7 +89,23 @@ int main(int argc, char *argv[]) {
 				break;
 			}
 		}
+		ball.updateBallPosition();
+
+		// check for collision with objects
+		if (paddle.hit(ball.getX(), ball.getY() + ball.getRadius())) {
+			ball.setYDiff(-ball.getYDiff);
+			ball.setY(paddle.getY() - ball.getRadius());
+		}
+		else if (paddle.miss(ball.getX(), ball.getY() + ball.getRadius())) {
+			// do some miss action
+		}
+		else if ((ball.getX() - ball.getRadius()) <= xLeftWall) {
+			ball.setXDiff(-ball.getXDiff());
+			ball.setX(xLeftWall + ball.getRadius());
+		}
+		
 		SDL_UpdateWindowSurface(window);
+
 		//FRAMERATELOCK // AND FOR GOD SAKE DELETE MEMORY LOL
 		cap_framerate(starting_tick);
 	}
