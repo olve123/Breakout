@@ -1,7 +1,7 @@
 #include "Piece.h"
 #include <iostream>
 
-void Piece::initSize(int height, int length)
+void Piece::initSize(double height, double length)
 {
 	setHeight(height);
 	setLength(length);
@@ -16,27 +16,30 @@ void Piece::PrintStats() const
 		<< "\t color : " << m_color 
 		<< endl;
 }
-void Piece::initPos(int xPos, int yPos) {
-	setX_Pos(xPos);
-	setY_Pos(yPos);
+void Piece::draw(SDL_Surface * dest)
+{
+}
+void Piece::initPos(double xPos, double yPos) {
+	setX(xPos);
+	setY(yPos);
 }
 
-void Piece::setX_Pos(int pos)
+void Piece::setX(double pos)
 {
 	m_xPos = pos;
 }
 
-void Piece::setY_Pos(int pos)
+void Piece::setY(double pos)
 {
 	m_yPos = pos;
 }
 
-void Piece::setHeight(int height)
+void Piece::setHeight(double height)
 {
 	m_height = height;
 }
 
-void Piece::setLength(int length)
+void Piece::setLength(double length)
 {
 	m_length = length;
 }
@@ -50,13 +53,13 @@ Piece::Piece()
 {
 }
 
-Piece::Piece(int xPos, int yPos, Uint32 color)
+Piece::Piece(double xPos, double yPos, Uint32 color)
 {
 	initPos(xPos, yPos);
 	setColor(color);
 }
 
-Piece::Piece(int xPos, int yPos, int height, int length, Uint32 color = (0,0,0))
+Piece::Piece(double xPos, double yPos, double height, double length, Uint32 color = (0,0,0))
 {
 	initPos(xPos, yPos);
 	initSize(height, length);
@@ -67,22 +70,22 @@ Piece::~Piece()
 {
 }
 
-int Piece::getX_Pos()
+double Piece::getX()
 {
 	return m_xPos;
 }
 
-int Piece::getY_Pos()
+double Piece::getY()
 {
 	return m_yPos;
 }
 
-int Piece::getHeight()
+double Piece::getHeight()
 {
 	return m_height;
 }
 
-int Piece::getLength()
+double Piece::getLength()
 {
 	return m_length;
 }

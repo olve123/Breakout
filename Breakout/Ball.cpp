@@ -19,3 +19,9 @@ Ball::~Ball()
 //{
 //	return false;
 //}
+
+void Ball::updateBallPosition()
+{
+	m_xPos += m_xDiff;
+	m_yPos += m_yDiff;
+}

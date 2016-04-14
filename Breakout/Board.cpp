@@ -82,3 +82,8 @@ Board::Board(SDL_Surface* dest)
 Board::~Board()
 {
 }
+
+void Board::fillBricks()
+{
+	vector<Brick> 
+}
