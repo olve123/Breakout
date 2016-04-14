@@ -85,5 +85,5 @@ Board::~Board()
 
 void Board::fillBricks()
 {
-	vector<Brick> 
+	//vector<Brick> 
 }
