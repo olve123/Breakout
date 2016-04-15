@@ -15,3 +15,13 @@ Circle::Circle(double xPos, double yPos, double rad, Uint32 color)
 	m_radius = rad;
 	m_color = color;
 }
+
+bool Circle::hit()
+{
+	return false;
+}
+
+void Circle::draw(SDL_Surface * dest)
+{
+	SDL_BlitSurface(m_image, NULL, dest, &m_rect);
+}

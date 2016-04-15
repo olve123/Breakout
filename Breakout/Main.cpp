@@ -1,5 +1,6 @@
 // ConsoleApplication4.cpp : Defines the entry point for the console application.
 //
+#include "Common.h"
 #include "SDL.h"
 #include <iostream>
 #include <vector>
@@ -8,9 +9,7 @@
 #include "Paddle.h"
 #include "Ball.h"
 
-#define window_width 800
-#define window_height 600
-#define fps 60
+
 
 using namespace std;
 
@@ -33,8 +32,8 @@ int main(int argc, char *argv[]) {
 		"BREAKOUT",
 		SDL_WINDOWPOS_UNDEFINED,
 		SDL_WINDOWPOS_UNDEFINED,
-		window_width,
-		window_height,
+		SCREEN_WIDTH,
+		SCREEN_HEIGHT,
 		SDL_WINDOW_RESIZABLE
 		);
 	//ERROR HANDLING
@@ -59,14 +58,15 @@ int main(int argc, char *argv[]) {
 
 
 	Paddle paddle(350, 577, 15, 100, (192153131));
-	/*Ball ball(20,20,20,(192153131);*/
-
+	Ball ball(400,300,20,(192153131));
+	//Ball ball();
 	//GAMELOOP
 	while (running) {
 		starting_tick = SDL_GetTicks();
 		SDL_FillRect(screen, NULL, 0x000000);
 		Board board(screen);
 		paddle.draw(screen);
+		ball.render();
 		
 		while (SDL_PollEvent(&event)) {
 			

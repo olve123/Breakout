@@ -13,11 +13,12 @@ public:
 	double getRadius();
 	double setRadius(double rad);
 	
-	//bool hit() override;
-	//void draw(SDL_Surface* dest) override;
+	bool hit() override;
+	void draw(SDL_Surface* dest) override;
 
 protected:
 	double m_radius;
+	SDL_Rect m_rect;
 	
 };
 
