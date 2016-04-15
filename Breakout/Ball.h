@@ -4,7 +4,7 @@
 #include "Common.h"
 #include "Circle.h"
 #include "Paddle.h"
-#include "MyTexture.h"
+//#include "MyTexture.h"
 
 class Ball : public Circle
 {
@@ -22,15 +22,12 @@ public:
 	static const int DOT_HEIGHT = 20;
 	static const int DOT_VEL = 10;
 
-	void handleEvent(SDL_Event& e);
-	void move();
-	void render();
-	MyTexture gDotTexture;
+	//void handleEvent(SDL_Event& e);
+	//void move();
+	//void render();
+	//MyTexture gDotTexture;
 
 private: 
-	//int m_xPos, m_yPos;
-	int mVelX, mVelY;
-
 	int const m_speed = 10;
 	double m_xDiff;
 	double m_yDiff;

@@ -18,7 +18,6 @@ public:
 
 protected:
 	double m_radius;
-	SDL_Rect m_rect;
 	
 };
 

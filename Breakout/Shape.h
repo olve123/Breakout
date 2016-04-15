@@ -27,7 +27,7 @@ protected:
 	double m_yPos;
 	Uint32 m_color;
 	SDL_Surface *m_image;
-	
+	SDL_Rect m_rect;
 };
 
 #endif // !SHAPE_H

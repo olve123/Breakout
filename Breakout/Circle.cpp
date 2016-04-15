@@ -23,5 +23,11 @@ bool Circle::hit()
 
 void Circle::draw(SDL_Surface * dest)
 {
-	SDL_BlitSurface(m_image, NULL, dest, &m_rect);
+	SDL_Rect rectDest;
+	rectDest.x = m_xPos - (m_rect.w / 2);
+	rectDest.y = m_yPos - (m_rect.h / 2);
+	rectDest.w = m_rect.w;
+	rectDest.h = m_rect.h;
+
+	SDL_BlitSurface(m_image, &m_rect, dest, &rectDest);
 }

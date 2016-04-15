@@ -66,7 +66,7 @@ int main(int argc, char *argv[]) {
 		SDL_FillRect(screen, NULL, 0x000000);
 		Board board(screen);
 		paddle.draw(screen);
-		ball.render();
+		ball.draw(screen);
 		
 		while (SDL_PollEvent(&event)) {
 			
