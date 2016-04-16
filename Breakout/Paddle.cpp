@@ -1,5 +1,5 @@
 #include "Paddle.h"
-
+#include "Common.h"
 
 
 Paddle::Paddle()
@@ -17,10 +17,15 @@ Paddle::Paddle(int xPos, int yPos, int height, int length, Uint32 color)
 void Paddle::moveRight(int x)
 {
 	m_rect.x += x;
+	if ((m_rect.x + m_length) > SCREEN_WIDTH)
+		m_rect.x = (SCREEN_WIDTH - m_length);
+	
 }
 
 void Paddle::moveLeft(int x)
 {
 	m_rect.x -= x;
+	if (m_rect.x < - 100)
+		m_rect.x = -90;
 }
 
