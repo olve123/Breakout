@@ -17,7 +17,7 @@ public:
 	void setY(double pos);
 	void setColor(Uint32 color);
 	void initPos(double m_xPos, double m_yPos);
-
+	SDL_Rect getRect();
 
 	virtual bool hit() = 0;
 	virtual void draw(SDL_Surface* dest) = 0;

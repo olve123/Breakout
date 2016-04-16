@@ -4,7 +4,7 @@
 #include "Common.h"
 #include "Circle.h"
 #include "Paddle.h"
-//#include "MyTexture.h"
+#include "TrigonometryFunctions.h"
 
 class Ball : public Circle
 {
@@ -17,21 +17,15 @@ public:
 	//bool update(Paddle& paddle, Board& board);
 	//void drawBall();
 	void updateBallPosition();
+	void moveBall();
+	bool rectCollision(SDL_Rect& r);
 	
-	static const int DOT_WIDTH = 20;
-	static const int DOT_HEIGHT = 20;
-	static const int DOT_VEL = 10;
-
-	//void handleEvent(SDL_Event& e);
-	//void move();
-	//void render();
-	//MyTexture gDotTexture;
-
+	bool checkPaddleHit(SDL_Rect& paddle, Circle& ball);
+	bool checkBricks();
+	bool checkWalls();
 private: 
-	int const m_speed = 10;
 	double m_xDiff;
-	double m_yDiff;
-	double m_radius;
+	double m_yDiff = -5;
 	
 };
 

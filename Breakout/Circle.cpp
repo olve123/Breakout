@@ -16,6 +16,19 @@ Circle::Circle(double xPos, double yPos, double rad, Uint32 color)
 	m_color = color;
 }
 
+double Circle::getRadius()
+{
+	return m_radius;
+}
+
+SDL_Point Circle::getSDL_CenterPoint()
+{
+	SDL_Point ret;
+	ret.x = static_cast<int>(m_xPos);
+	ret.y = static_cast<int>(m_yPos);
+	return ret;
+}
+
 bool Circle::hit()
 {
 	return false;

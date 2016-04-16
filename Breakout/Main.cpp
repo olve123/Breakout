@@ -58,7 +58,7 @@ int main(int argc, char *argv[]) {
 
 
 	Paddle paddle(350, 577, 15, 100, (192153131));
-	Ball ball(400,300,20,(192153131));
+	Ball ball(400,550,20,(192153131));
 	//Ball ball();
 	//GAMELOOP
 	while (running) {
@@ -66,6 +66,10 @@ int main(int argc, char *argv[]) {
 		SDL_FillRect(screen, NULL, 0x000000);
 		Board board(screen);
 		paddle.draw(screen);
+		ball.checkPaddleHit(paddle.getRect(), ball);
+		ball.checkWalls();
+		ball.moveBall();
+
 		ball.draw(screen);
 		
 		while (SDL_PollEvent(&event)) {
