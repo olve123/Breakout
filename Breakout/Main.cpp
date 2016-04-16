@@ -37,6 +37,7 @@ int main(int argc, char *argv[]) {
 		window_height,
 		SDL_WINDOW_RESIZABLE
 		);
+	
 	//ERROR HANDLING
 	if (window == NULL) {
 		cout << "there was an error initializing the window!" << endl

@@ -10,6 +10,14 @@ Ball::Ball(double xPos, double yPos, double radius, Uint32 color)
 	
 }
 
+void Ball::init(Paddle & paddle)
+{
+}
+
+void Ball::drawBall()
+{
+}
+
 
 //
 //bool Ball::update(Paddle & paddle, Board & board)

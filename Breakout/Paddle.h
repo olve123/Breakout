@@ -11,6 +11,7 @@ public:
 	//~Paddle();
 	void moveRight(int x);
 	void moveLeft(int x);
+	SDL_Rect getRect();
 	//void draw(SDL_Surface* dest);
 	//bool hit();
 	//bool miss();

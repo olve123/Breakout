@@ -24,3 +24,7 @@ void Paddle::moveLeft(int x)
 	m_rect.x -= x;
 }
 
+SDL_Rect Paddle::getRect() {
+	return m_rect;
+}
+
