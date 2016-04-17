@@ -8,6 +8,7 @@
 #include "Board.h"
 #include "Paddle.h"
 #include "Ball.h"
+#include "GameManager.h"
 
 
 
@@ -60,7 +61,14 @@ int main(int argc, char *argv[]) {
 	Paddle paddle(350, 577, 15, 100, (192153131));
 	Ball ball(400,550,20,(192153131));
 	//Ball ball();
+
 	//GAMELOOP
+	GameManager gm;
+	
+	gm.menu();
+	//gm.init - sette opp vindu tegne brettet
+	//gm.pause - spillet starter i pause() - press space for å skyte ballen
+	//gm.start?  kjøre loopen under i gmstart
 	while (running) {
 		starting_tick = SDL_GetTicks();
 		SDL_FillRect(screen, NULL, 0x000000);
@@ -69,14 +77,11 @@ int main(int argc, char *argv[]) {
 		ball.checkPaddleHit(paddle.getRect(), ball);
 		ball.checkWalls();
 		ball.moveBall();
-
 		ball.draw(screen);
 		
 		while (SDL_PollEvent(&event)) {
-			
 			//paddle.draw(screen);
 			switch (event.key.keysym.sym) {
-			
 			case SDLK_q: 
 				running = 0;
 			case SDLK_LEFT:
@@ -88,6 +93,8 @@ int main(int argc, char *argv[]) {
 				paddle.moveRight(15);
 				paddle.draw(screen);
 				break;
+			case SDLK_p:
+				gm.pause();
 			}
 
 			if (event.type == SDL_QUIT) {

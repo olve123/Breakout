@@ -4,6 +4,7 @@
 
 Paddle::Paddle()
 {
+
 }
 
 Paddle::Paddle(int xPos, int yPos, int height, int length, Uint32 color)

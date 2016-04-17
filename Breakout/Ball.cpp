@@ -1,5 +1,6 @@
 #include "Ball.h"
 #include <iostream>
+#include "GameManager.h"
 
 Ball::Ball()
 {
@@ -80,9 +81,7 @@ bool Ball::checkWalls()
 		return true;
 	}
 	else if (m_yPos > SCREEN_HEIGHT + m_radius) {
-		
+		//send til gamemanager->gameover
 	}
-
-	return false;
-		
+	return false;	
 }
