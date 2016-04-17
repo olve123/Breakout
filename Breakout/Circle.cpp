@@ -37,8 +37,8 @@ bool Circle::hit()
 void Circle::draw(SDL_Surface * dest)
 {
 	SDL_Rect rectDest;
-	rectDest.x = m_xPos - (m_rect.w / 2);
-	rectDest.y = m_yPos - (m_rect.h / 2);
+	rectDest.x = static_cast<int>(m_xPos - (m_rect.w / 2.0));
+	rectDest.y = static_cast<int>(m_yPos - (m_rect.h / 2.0));
 	rectDest.w = m_rect.w;
 	rectDest.h = m_rect.h;
 

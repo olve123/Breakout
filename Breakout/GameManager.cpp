@@ -58,6 +58,8 @@ void GameManager::gameOver()
 				gameover = false;
 				running = 0;
 				break;
+			case SDLK_r:
+				menu();
 			}
 
 			if (gameOverEvent.type == SDL_QUIT) {
@@ -127,6 +129,7 @@ void GameManager::menu()
 			
 			case SDLK_s:
 				menu = false;
+				start();
 				break;
 		
 			case SDLK_q:

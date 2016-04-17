@@ -16,9 +16,6 @@ int main(int argc, char *argv[]) {
 	//Start and draw menu to screen
 	gm.menu();
 	
-	//Start the main game
-	gm.start();
-	
 	return 0;
 
 

@@ -12,8 +12,8 @@ Brick::Brick(double xPos, double yPos, int height, int length, Uint32 color, int
 	m_hp = hp;
 	m_image = SDL_CreateRGBSurface(0, length, height, 32, 0, 0, 0, 0);
 	SDL_FillRect(m_image, NULL, color);
-	m_rect.x = xPos;
-	m_rect.y = yPos;
+	m_rect.x = static_cast<int>(xPos);
+	m_rect.y = static_cast<int>(yPos);
 		
 }
 
