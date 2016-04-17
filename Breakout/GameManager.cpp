@@ -4,7 +4,7 @@
 #include "Board.h"
 #include <iostream>
 #include "Common.h"
-
+#include "Bricks.h"
 GameManager::GameManager()
 {
 }
@@ -157,11 +157,16 @@ void GameManager::menu()
 void GameManager::start()
 {
 	SDL_Event event;
-	//Create Paddle
-	Paddle paddle(350, 577, 15, 100, (192153131));
-	//Create Ball
-	Ball ball(400, 550, 20, (192153131));
+	////Create Paddle
+	//Paddle paddle(350, 577, 15, 100, (192153131));
+	////Create Ball
+	//Ball ball(400, 550, 20, (192153131));
 	
+	Paddle paddle(345, 577, 15, 100, (192153131));
+	Ball ball(395, 550, 20, (192153131));
+	Bricks bricks;
+	bricks.createBricks();
+
 	// MAIN GAMELOOP	
 	while (running) {
 		//fps
@@ -176,8 +181,14 @@ void GameManager::start()
 		ball.checkWalls();
 		ball.moveBall();
 		ball.draw(screen);
-
+		bricks.drawBricks(screen);
+		bricks.checkBricks(ball);
+		
+		if (ball.checkGameOver()) {
+			gameOver();
+		}
 		while (SDL_PollEvent(&event)) {
+			
 			switch (event.key.keysym.sym) {
 			
 			case SDLK_q:
@@ -189,9 +200,13 @@ void GameManager::start()
 				break;
 
 			case SDLK_RIGHT:
+				
 				paddle.moveRight(15);
 				paddle.draw(screen);
 				break;
+				
+				
+				
 			
 			case SDLK_p:
 				pause();

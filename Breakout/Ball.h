@@ -27,6 +27,7 @@ public:
 	
 	bool checkPaddleHit(SDL_Rect& paddle, Circle& ball);
 	bool checkWalls();
+	bool checkGameOver();
 private: 
 	double m_xDiff;
 	double m_yDiff = -5;
