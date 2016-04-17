@@ -1,7 +1,7 @@
 #ifndef PADDLE_H
 #define PADDLE_H
 
-
+#include "Common.h"
 #include "Square.h"
 class Paddle : public Square
 {

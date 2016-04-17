@@ -1,6 +1,4 @@
 #include "Ball.h"
-#include <iostream>
-#include "GameManager.h"
 
 Ball::Ball()
 {
@@ -21,8 +19,6 @@ Ball::Ball(double xPos, double yPos, double radius, Uint32 color)
 	m_rect.y = 0;
 	m_rect.w = m_image->w;
 	m_rect.h = m_image->h;
-	//m_centerPoint.x = m_rect.x + (m_rect.w / 2);
-	//m_centerPoint.y = m_rect.y +  (m_rect.h / 2);
 }
 
 void Ball::setXDiff(double xDiff)
@@ -45,14 +41,6 @@ double Ball::getYDiff()
 	return m_yDiff;
 }
 
-
-
-
-//
-//bool Ball::update(Paddle & paddle, Board & board)
-//{
-//	return false;
-//}
 
 void Ball::updateBallPosition()
 {
@@ -97,9 +85,7 @@ bool Ball::checkWalls()
 		m_xPos = SCREEN_WIDTH - m_radius;
 		return true;
 	}
-	else if (m_yPos > SCREEN_HEIGHT + m_radius) {
-		//send til gamemanager->gameover
-	}
+	
 	return false;	
 }
 

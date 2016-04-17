@@ -7,6 +7,7 @@
 
 #include <string>
 #include "Square.h"
+#include "SDL.h"
 using namespace std;
 
 class Brick: public Square {
@@ -16,9 +17,6 @@ public:
 	~Brick();
 	int getHp();
 	void setHp(int hp);	
-	//void draw(SDL_Surface* dest);
-	//bool hit();
-	//bool miss();
 
 private:
 	int m_hp;

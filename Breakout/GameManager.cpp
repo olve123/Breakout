@@ -1,10 +1,4 @@
 #include "GameManager.h"
-#include "Paddle.h"
-#include "Ball.h"
-#include "Board.h"
-#include <iostream>
-#include "Common.h"
-#include "Bricks.h"
 GameManager::GameManager()
 {
 }
@@ -26,7 +20,7 @@ void GameManager::init()
 
 	//ERROR HANDLING
 	if (window == NULL) {
-		cout << "there was an error initializing the window!" << endl
+		cout << "There was an error initializing the window!" << endl
 			<< SDL_GetError() << endl;
 	}
 

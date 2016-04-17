@@ -4,9 +4,13 @@
 *	GAMEMANAGER
 *
 */
-
 #include <string>
 #include "SDL.h"
+#include "Paddle.h"
+#include "Ball.h"
+#include <iostream>
+#include "Common.h"
+#include "Bricks.h"
 using namespace std;
 class GameManager {
 	
