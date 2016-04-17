@@ -1,5 +1,4 @@
-// ConsoleApplication4.cpp : Defines the entry point for the console application.
-//
+// Breakout 
 
 #include "GameManager.h"
 
