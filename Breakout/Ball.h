@@ -12,6 +12,8 @@ class Ball : public Circle
 public:
 	Ball();
 	Ball(double xPos, double yPos, double radius, Uint32 color);
+
+
 	void setXDiff(double xDiff);
 	void setYDiff(double yDiff);
 
