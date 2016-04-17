@@ -25,13 +25,7 @@ Ball::Ball(double xPos, double yPos, double radius, Uint32 color)
 	//m_centerPoint.y = m_rect.y +  (m_rect.h / 2);
 }
 
-void Ball::init(Paddle & paddle)
-{
-}
 
-void Ball::drawBall()
-{
-}
 
 
 //
