@@ -41,6 +41,11 @@ void Shape::initPos(double xPos, double yPos) {
 	setY(yPos);
 }
 
+SDL_Rect Shape::getRect()
+{
+	return m_rect;
+}
+
 
 
 

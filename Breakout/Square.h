@@ -24,7 +24,7 @@ public:
 protected:
 	int m_height;
 	int m_length;
-	SDL_Rect m_rect;
+	
 };
 
 #endif // !SQUARE_H

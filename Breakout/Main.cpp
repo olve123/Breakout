@@ -1,5 +1,6 @@
 // ConsoleApplication4.cpp : Defines the entry point for the console application.
 //
+#include "Common.h"
 #include "SDL.h"
 #include <iostream>
 #include <vector>
@@ -7,10 +8,9 @@
 #include "Board.h"
 #include "Paddle.h"
 #include "Ball.h"
+#include "GameManager.h"
 
-#define window_width 800
-#define window_height 600
-#define fps 60
+
 
 using namespace std;
 
@@ -33,8 +33,8 @@ int main(int argc, char *argv[]) {
 		"BREAKOUT",
 		SDL_WINDOWPOS_UNDEFINED,
 		SDL_WINDOWPOS_UNDEFINED,
-		window_width,
-		window_height,
+		SCREEN_WIDTH,
+		SCREEN_HEIGHT,
 		SDL_WINDOW_RESIZABLE
 		);
 	
@@ -60,20 +60,29 @@ int main(int argc, char *argv[]) {
 
 
 	Paddle paddle(350, 577, 15, 100, (192153131));
-	/*Ball ball(20,20,20,(192153131);*/
+	Ball ball(400,550,20,(192153131));
+	//Ball ball();
 
 	//GAMELOOP
+	GameManager gm;
+	
+	gm.menu();
+	//gm.init - sette opp vindu tegne brettet
+	//gm.pause - spillet starter i pause() - press space for å skyte ballen
+	//gm.start?  kjøre loopen under i gmstart
 	while (running) {
 		starting_tick = SDL_GetTicks();
 		SDL_FillRect(screen, NULL, 0x000000);
 		Board board(screen);
 		paddle.draw(screen);
+		ball.checkPaddleHit(paddle.getRect(), ball);
+		ball.checkWalls();
+		ball.moveBall();
+		ball.draw(screen);
 		
 		while (SDL_PollEvent(&event)) {
-			
 			//paddle.draw(screen);
 			switch (event.key.keysym.sym) {
-			
 			case SDLK_q: 
 				running = 0;
 			case SDLK_LEFT:
@@ -85,6 +94,8 @@ int main(int argc, char *argv[]) {
 				paddle.moveRight(15);
 				paddle.draw(screen);
 				break;
+			case SDLK_p:
+				gm.pause();
 			}
 
 			if (event.type == SDL_QUIT) {

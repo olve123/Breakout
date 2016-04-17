@@ -1,8 +1,10 @@
 #ifndef BALL_H
 #define BALL_H
 
+#include "Common.h"
 #include "Circle.h"
 #include "Paddle.h"
+#include "TrigonometryFunctions.h"
 
 class Ball : public Circle
 {
@@ -11,20 +13,19 @@ public:
 	Ball(double xPos, double yPos, double radius, Uint32 color);
 	//~Ball();
 
-	void init(Paddle& paddle); // Places the ball in the correct position
-	
+	//void init(Paddle& paddle); // Places the ball in the correct position
 	//bool update(Paddle& paddle, Board& board);
-	void drawBall();
-	
-
+	//void drawBall();
 	void updateBallPosition();
-
+	void moveBall();
+	bool rectCollision(SDL_Rect& r);
 	
+	bool checkPaddleHit(SDL_Rect& paddle, Circle& ball);
+	bool checkBricks();
+	bool checkWalls();
 private: 
-	int const m_speed = 10;
 	double m_xDiff;
-	double m_yDiff;
-	double m_radius;
+	double m_yDiff = -5;
 	
 };
 
