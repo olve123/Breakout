@@ -41,11 +41,6 @@ void GameManager::init()
 
 void GameManager::gameOver()
 {
-	//gameover loop
-	//draw bilde av gameoverscreen
-	//trykk r for restart 
-	//q for quit
-
 	bool gameover = true;
 	SDL_Event gameOverEvent;
 	image = SDL_LoadBMP("gameover.bmp");
@@ -162,11 +157,7 @@ void GameManager::menu()
 void GameManager::start()
 {
 	SDL_Event event;
-	////Create Paddle
-	//Paddle paddle(350, 577, 15, 100, (192153131));
-	////Create Ball
-	//Ball ball(400, 550, 20, (192153131));
-	
+
 	Paddle paddle(345, 577, 15, 100, (192153131));
 	Ball ball(395, 550, 20, (192153131));
 	Bricks bricks;
@@ -177,10 +168,7 @@ void GameManager::start()
 		//fps
 		starting_tick = SDL_GetTicks();
 		//fill screen with a white background
-		SDL_FillRect(screen, NULL, 0x000000);
-		//new board object
-		Board board(screen);
-		//draw paddle
+		SDL_FillRect(screen, NULL, 0xFFFFFF);
 		paddle.draw(screen);
 		ball.checkPaddleHit(paddle.getRect(), ball);
 		ball.checkWalls();
