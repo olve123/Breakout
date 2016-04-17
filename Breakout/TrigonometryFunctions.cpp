@@ -14,15 +14,41 @@ bool TrigonometryFunctions::overlap(const SDL_Rect& r1, const SDL_Rect& r2)
 bool TrigonometryFunctions::overlap(Circle& c, SDL_Rect& r)
 {
 	
-	const SDL_Point p = c.getSDL_CenterPoint();
+	SDL_Point p = c.getSDL_CenterPoint();
 	int radius = static_cast<int>(c.getRadius()); 
-	const SDL_Rect rectAddX = expandRectange(r, radius, 0);
-	const SDL_Rect rectAddY = expandRectange(r, 0, radius);
+	if (SDL_PointInRect(&p, &expandRectange(r, radius, 0))) {
+		return true;
+	}
+	if (SDL_PointInRect(&p, &expandRectange(r, 0, radius))) {
+		return true;
+	}
+	SDL_Point upperLeft, upperRight, lowerLeft, lowerRight;
+	upperLeft.x = r.x; upperLeft.y = r.y;
+	upperRight.x = r.x + r.w; upperRight.y = r.y;
+	lowerLeft.x = r.x; lowerLeft.y = r.y + r.h;
+	lowerRight.x = r.x + r.w; lowerRight.y = r.y + r.h;
 
-	return (
-		SDL_PointInRect(&p, &rectAddX) ||
-		SDL_PointInRect(&p, &rectAddY) 
-		);
+	if (distance(p, upperLeft) < radius) {
+		return true;
+	}
+	if (distance(p, upperRight) < radius) {
+		return true;
+	}
+	if (distance(p, lowerLeft) < radius) {
+		return true;
+	}
+	if (distance(p, lowerRight) < radius) {
+		return true;
+	}
+
+	return false;
+}
+
+int TrigonometryFunctions::distance(SDL_Point & p1, SDL_Point & p2)
+{
+	double d = sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2));
+	return static_cast<int>(d);
+	
 }
 
 

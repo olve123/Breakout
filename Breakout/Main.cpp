@@ -9,7 +9,7 @@
 #include "Paddle.h"
 #include "Ball.h"
 #include "GameManager.h"
-
+#include "Bricks.h"
 
 
 using namespace std;
@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
 		SDL_WINDOW_RESIZABLE
 		);
 	
-	//ERROR HANDLING
+	//ERROR HANDING
 	if (window == NULL) {
 		cout << "there was an error initializing the window!" << endl
 			<< SDL_GetError() << endl;
@@ -59,10 +59,11 @@ int main(int argc, char *argv[]) {
 	SDL_Event event;
 
 
-	Paddle paddle(350, 577, 15, 100, (192153131));
-	Ball ball(400,550,20,(192153131));
-	//Ball ball();
-
+	Paddle paddle(345, 577, 15, 100, (192153131));
+	Ball ball(395,550,20,(192153131));
+	Bricks bricks;
+	bricks.createBricks();
+	
 	//GAMELOOP
 	GameManager gm;
 	
@@ -75,7 +76,9 @@ int main(int argc, char *argv[]) {
 		SDL_FillRect(screen, NULL, 0x000000);
 		Board board(screen);
 		paddle.draw(screen);
+		bricks.drawBricks(screen);
 		ball.checkPaddleHit(paddle.getRect(), ball);
+		bricks.checkBricks(ball);
 		ball.checkWalls();
 		ball.moveBall();
 		ball.draw(screen);
@@ -103,21 +106,7 @@ int main(int argc, char *argv[]) {
 				break;
 			}
 		}
-		//ball.updateBallPosition();
 
-		//// check for collision with objects
-		//if (paddle.hit(ball.getX(), ball.getY() + ball.getRadius())) {
-		//	ball.setYDiff(-ball.getYDiff);
-		//	ball.setY(paddle.getY() - ball.getRadius());
-		//}
-		//else if (paddle.miss(ball.getX(), ball.getY() + ball.getRadius())) {
-		//	// do some miss action
-		//}
-		//else if ((ball.getX() - ball.getRadius()) <= xLeftWall) {
-		//	ball.setXDiff(-ball.getXDiff());
-		//	ball.setX(xLeftWall + ball.getRadius());
-		//}
-		
 		SDL_UpdateWindowSurface(window);
 
 		//FRAMERATELOCK // AND FOR GOD SAKE DELETE MEMORY LOL
