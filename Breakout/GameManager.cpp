@@ -66,6 +66,7 @@ void GameManager::gameOver()
 				break;
 
 			case SDLK_q:
+				gameover = false;
 				running = 0;
 				break;
 			}
@@ -76,6 +77,7 @@ void GameManager::gameOver()
 			}
 
 			if (!running) {
+				gameover = 0;
 				SDL_DestroyWindow(window);
 				SDL_Quit();
 			}
@@ -94,10 +96,11 @@ void GameManager::pause()
 			switch (pauseEvent.key.keysym.sym) {
 			
 			case SDLK_SPACE:
-				pause = false;
+				pause = 0;
 				break;
 			
 			case SDLK_q:
+				pause = 0;
 				running = 0;
 				break;
 			}
@@ -108,6 +111,7 @@ void GameManager::pause()
 			}
 			
 			if (!running) {
+				pause = 0;
 				SDL_DestroyWindow(window);
 				SDL_Quit();
 			}
@@ -137,6 +141,7 @@ void GameManager::menu()
 				break;
 		
 			case SDLK_q:
+				menu = false;
 				running = 0;
 				break;
 			}
@@ -205,11 +210,11 @@ void GameManager::start()
 				paddle.draw(screen);
 				break;
 				
-				
-				
-			
 			case SDLK_p:
 				pause();
+				break;
+			case SDLK_r:
+				start();
 			}
 
 			if (event.type == SDL_QUIT) {
@@ -220,7 +225,7 @@ void GameManager::start()
 		SDL_UpdateWindowSurface(window);
 		SDL_FreeSurface(screen);
 
-		//FRAMERATELOCK // AND FOR GOD SAKE DELETE MEMORY LOL
+		//FRAMERATELOCK
 		cap_framerate(starting_tick);
 	}
 	SDL_DestroyWindow(window);
