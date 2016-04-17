@@ -84,6 +84,8 @@ bool Ball::checkWalls()
 	}
 	else if (m_yPos > SCREEN_HEIGHT + m_radius) {
 		//send til gamemanager->gameover
+		//GameManager gm();
+		
 	}
 	return false;	
 }

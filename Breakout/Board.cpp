@@ -3,6 +3,9 @@
 #include "Paddle.h"
 #include <vector>
 #include <algorithm>
+#include "GameManager.h"
+#include "Shape.h"
+
 
 
 Board::Board()
@@ -67,16 +70,6 @@ Board::Board(SDL_Surface* dest)
 	{
 		brickAr[i].draw(dest);
 	}
-	/*Paddle paddle(350,577,15,100,red);
-	paddle.draw(dest);*/
-
-	
-
-
-	
-	
-
-	
 }
 
 Board::~Board()

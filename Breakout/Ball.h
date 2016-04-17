@@ -26,6 +26,7 @@ public:
 private: 
 	double m_xDiff;
 	double m_yDiff = -5;
+	//GameManager gm();
 	
 };
 
