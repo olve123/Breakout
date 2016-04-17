@@ -1,5 +1,6 @@
 #include "GameManager.h"
 
+
 GameManager::GameManager()
 {
 }
@@ -8,9 +9,9 @@ GameManager::GameManager()
 void GameManager::gameOver()
 {
 	//gameover loop
-	//draw bilde av gameoverscreen
-	//trykk r for restart 
-	//q for quit
+	//Draw picture of gameoverscreen
+	//press r for restart
+	//q to quit
 }
 
 void GameManager::pause()
