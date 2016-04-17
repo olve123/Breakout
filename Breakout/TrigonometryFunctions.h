@@ -3,6 +3,8 @@
 
 #include <SDL.h>
 #include "Circle.h"
+#include <math.h>
+
 class TrigonometryFunctions {
 public:
 	// Check if point p is inside rectangle r
@@ -15,7 +17,7 @@ public:
 	// Check if circle overlaps a rectangle
 	static bool overlap( Circle& c, SDL_Rect& r);
 	// Calculate a distance between two points
-	int distance(SDL_Point& p1, SDL_Point& p2);
+	static int distance(SDL_Point& p1, SDL_Point& p2);
 	// Create a new rectangle based on input rectanlge and expand with xDiff horizontally and yDiff vertically
 	static SDL_Rect expandRectange(SDL_Rect& r, int xDiff, int yDiff);
 

@@ -25,6 +25,26 @@ Ball::Ball(double xPos, double yPos, double radius, Uint32 color)
 	//m_centerPoint.y = m_rect.y +  (m_rect.h / 2);
 }
 
+void Ball::setXDiff(double xDiff)
+{
+	m_xDiff = xDiff;
+}
+
+void Ball::setYDiff(double yDiff)
+{
+	m_yDiff = yDiff;
+}
+
+double Ball::getXDiff()
+{
+	return m_xDiff;
+}
+
+double Ball::getYDiff()
+{
+	return m_yDiff;
+}
+
 
 
 
@@ -46,18 +66,13 @@ void Ball::moveBall()
 
 }
 
-bool Ball::rectCollision(SDL_Rect & r)
-{
-	return false;
-}
-
 
 bool Ball::checkPaddleHit(SDL_Rect& paddle, Circle& ball)
 {
 	if (TrigonometryFunctions::overlap(ball, paddle)) {
 		double xCenter = paddle.x + (paddle.w / 2);
 		double xHit = ball.getX();
-		m_xDiff = ((xHit - xCenter) / paddle.h) * m_yDiff;
+		m_xDiff = ((xHit - xCenter) / paddle.h) * (m_yDiff/2);
 		m_yDiff = -m_yDiff;
 		ball.setY(paddle.y - ball.getRadius());
 		return true;

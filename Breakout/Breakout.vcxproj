@@ -151,10 +151,10 @@
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Brick.cpp" />
+    <ClCompile Include="Bricks.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="MyTexture.cpp" />
     <ClCompile Include="Paddle.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="Shape.cpp" />
@@ -164,10 +164,10 @@
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="Brick.h" />
+    <ClInclude Include="Bricks.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="GameManager.h" />
-    <ClInclude Include="MyTexture.h" />
     <ClInclude Include="Paddle.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="Shape.h" />

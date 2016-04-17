@@ -16,12 +16,16 @@ public:
 	//void init(Paddle& paddle); // Places the ball in the correct position
 	//bool update(Paddle& paddle, Board& board);
 	//void drawBall();
+	void setXDiff(double xDiff);
+	void setYDiff(double yDiff);
+
+	double getXDiff();
+	double getYDiff();
+	
 	void updateBallPosition();
 	void moveBall();
-	bool rectCollision(SDL_Rect& r);
 	
 	bool checkPaddleHit(SDL_Rect& paddle, Circle& ball);
-	bool checkBricks();
 	bool checkWalls();
 private: 
 	double m_xDiff;

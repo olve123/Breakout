@@ -3,9 +3,6 @@
 #include "Paddle.h"
 #include <vector>
 #include <algorithm>
-#include "GameManager.h"
-#include "Shape.h"
-
 
 
 Board::Board()
@@ -31,6 +28,9 @@ Board::Board(SDL_Surface* dest)
 	int counter = 0;
 	//make brick array 
 	Brick brickAr[50];
+//#define OLDBRICKS
+#ifdef OLDBRICKS
+
 
 	//MAKE BRICKS (BARE ROT)
 	for (int i = 3; i <= 750; i++)
@@ -60,16 +60,15 @@ Board::Board(SDL_Surface* dest)
 		i += 98;
 		counter++;
 	}
-
-	//lets see what the future holds
-	/*for_each(begin(brickAr), end(brickAr), brickAr) {
-		brickAr[counter] = { i, 3, 25, 97, red, 1 };
-	});*/
 	
 	for (int i = 0; i < 32; i++)
 	{
 		brickAr[i].draw(dest);
 	}
+#else
+	
+#endif // OLDBRICKS	
+
 }
 
 Board::~Board()
